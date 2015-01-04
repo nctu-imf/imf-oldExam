@@ -15,3 +15,7 @@
  */
 
 @import "bootstrap";
+
+ body {
+ 	padding: 70px;
+ }

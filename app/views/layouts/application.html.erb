@@ -2,18 +2,16 @@
 <html>
 <head>
   <title>NctuIMF考古題系統</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+	<%= render "common/navbar" %>
 <body>
-
-<div class="container-fluid">
-  <%= render "common/navbar" %>
-  <%= notice_message %>
-  <%= yield %>
-</div>
-  <%= render "common/footer" %>
-
+	<div class="container">
+		<%= notice_message %>
+		<%= yield %>
+	</div>
 </body>
+	<%= render "common/footer" %>
 </html>
