@@ -1,39 +1,41 @@
-<div class="col-md-12"> 
+<div class="row"> 
   
-  <h1 class="text-center"> 所有課程 </h1>
+  <%= render "common/side_bar" %>
 
-  <div class="group">
-    <%= link_to("新增課程", new_course_path , :class => "btn btn-primary pull-right" ) %>
-  </div>
+  <div class="col-md-10">
+    <div class="group">
+      <%= link_to("新增課程", new_course_path , :class => "btn btn-primary pull-right" ) %>
+    </div>
 
-  <table class="table table-hover">
-    <thead> 
-      <tr>
-        <th> 西元年 </th>
-        <th> 教授 </th>
-        <th> 上傳的人 </th>
-        <th> 類型 </th>
-        <th> 檔案名稱 </th>
-        <th> 備註 </th>      
-        <th> 上傳時間 </th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @courses.each do |course| %>  
+    <table class="table table-hover">
+      <thead> 
         <tr>
-          <td><%= course.year %></td>
-          <td><%= course.teacher %></td>
-          <td> </td>
-          <td><%= course.category %></td>
-          <td> </td>
-          <td> <%= simple_format(course.note) %> </td>
-          <td> <%= course.created_at.to_date %> </td>
-          <td><%= link_to 'Show', course %></td>
-          <td><%= link_to 'Edit', edit_course_path(course) %></td>
-          <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <th> 西元年 </th>
+          <th> 教授 </th>
+          <th> 上傳的人 </th>
+          <th> 類型 </th>
+          <th> 檔案名稱 </th>
+          <th> 備註 </th>      
+          <th> 上傳時間 </th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+
+      <tbody>
+        <% @courses.each do |course| %>  
+          <tr>
+            <td><%= course.year %></td>
+            <td><%= course.teacher %></td>
+            <td> </td>
+            <td><%= course.category %></td>
+            <td> </td>
+            <td> <%= simple_format(course.note) %> </td>
+            <td> <%= course.created_at.to_date %> </td>
+            <td><%= link_to 'Show', course %></td>
+            <td><%= link_to 'Edit', edit_course_path(course) %></td>
+            <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>
