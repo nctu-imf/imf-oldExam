@@ -27,9 +27,9 @@
             <td><%= course.teacher %></td>
             <td> </td>
             <td><%= course.category %></td>
-            <td> </td>
-            <td> <%= simple_format(course.note) %> </td>
-            <td> <%= course.created_at.to_date %> </td>
+            <td><%= course.CourseData %></td>
+            <td><%= simple_format(course.note) %></td>
+            <td><%= course.created_at.to_date %></td>
             <td><%= link_to 'Show', course %></td>
             <td><%= link_to 'Edit', edit_course_path(course) %></td>
             <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>

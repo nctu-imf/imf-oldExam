@@ -25,6 +25,9 @@
       <%= f.text_field :teacher, :class => "form-control", :placeholder => "老師" %>
       <br>
       <%= f.text_area :note, :class => "form-control", :placeholder => "備註" %>
+      <br>
+      <%= f.label :CourseData, "上傳檔案(資料夾請先壓縮再上傳喔～)" %>
+      <%= f.file_field :CourseData %>
     </div>
     
     <hr>

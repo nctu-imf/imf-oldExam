@@ -1,4 +1,5 @@
 class Course < ActiveRecord::Base
+  mount_uploader :CourseData, CourseDataUploader
   
   validates :year, :name, :teacher, :grade, :category, :presence => true
   
