@@ -1,0 +1,38 @@
+<div class="col-md-12">  
+
+  <div class="group">
+    <%= link_to("新增", new_course_path(@course), :class => "btn btn-warning pull-right" ) %>
+    <%= link_to("修改", edit_course_path(@course), :class => "btn btn-primary pull-right" ) %>
+  </div>
+
+  <p>
+    <strong>Name:</strong>
+    <%= @course.name %>
+  </p>
+
+  <p>
+    <strong>Category:</strong>
+    <%= @course.category %>
+  </p>
+
+  <p>
+    <strong>Year:</strong>
+    <%= @course.year %>
+  </p>
+
+  <p>
+    <strong>Grade:</strong>
+    <%= @course.grade %>
+  </p>
+
+  <p>
+    <strong>Teacher:</strong>
+    <%= @course.teacher %>
+  </p>
+
+  <p>
+    <strong>Note:</strong>
+    <%= @course.note %>
+  </p>
+
+</div>

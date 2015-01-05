@@ -1,0 +1,35 @@
+<div class="col-md-4 col-md-offset-4">
+  <%= form_for(@course) do |f| %>
+    <% if @course.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
+
+        <ul>
+        <% @course.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-inputs">
+      <br>
+      <%= f.text_field :name, :class => "form-control", :placeholder => "課程名稱" %>
+      <br>
+      <%= f.text_field :category, :class => "form-control", :placeholder => "種類" %>
+      <br>
+      <%= f.number_field :year, :class => "form-control", :placeholder => "西元年" %>
+      <br>
+      <%= f.number_field :grade, :class => "form-control", :placeholder => "年級" %>
+      <br>
+      <%= f.text_field :teacher, :class => "form-control", :placeholder => "老師" %>
+      <br>
+      <%= f.text_area :note, :class => "form-control", :placeholder => "備註" %>
+    </div>
+    
+    <hr>
+    <div class="form-actions">
+      <%= f.submit "確定", :class => "btn btn-primary"%>
+    </div>
+  <% end %>
+</div>

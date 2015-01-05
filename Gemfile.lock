@@ -44,6 +44,9 @@ GEM
       slim (>= 1.3.6, < 3.0)
       terminal-table (~> 1.4)
     builder (3.2.2)
+    carrierwave (0.6.2)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
     code_analyzer (0.4.5)
       sexp_processor
     coffee-rails (4.0.1)
@@ -164,6 +167,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass
   brakeman
+  carrierwave
   coffee-rails (~> 4.0.0)
   devise
   jbuilder (~> 2.0)
