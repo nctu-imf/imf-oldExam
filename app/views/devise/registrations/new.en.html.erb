@@ -1,0 +1,28 @@
+<div class="col-md-4 col-md-offset-4">
+
+  <h2 class="text-center">Register</h2>
+  <hr>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="form-inputs">
+      <br>
+      <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Email" %>
+      <br>
+      <%= f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "Password" %>
+
+      <br>
+      <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control", :placeholder => "Confirm Password" %>
+    </div>
+
+    <hr>
+    <div class="form-actions">
+    	<%= f.submit "Submit", :class => "btn btn-primary" %>
+    </div>
+
+  <% end %>
+
+  <hr>
+  <%= render "devise/shared/links" %>
+</div>
