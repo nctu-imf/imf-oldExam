@@ -11,4 +11,6 @@ class Course < ActiveRecord::Base
       with: /(19|20)\d{2}/i, 
       message: "請輸入合法的年份"
     }
+
+  validates_presence_of :CourseData
 end
