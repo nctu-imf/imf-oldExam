@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :courses
+  resources :courses do
+    collection do
+      get :download_file
+    end
+  end
+  
 
   devise_for :users
 

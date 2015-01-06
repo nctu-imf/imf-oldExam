@@ -8,6 +8,7 @@
   <li role="presentation"><a href="#">大三</a></li>
   <li role="presentation"><a href="#">大四</a></li>
   <li role="presentation"><a href="#">研究所</a></li>
+  <li role="presentation"><a href="#">其他</a></li>
 </ul>
 
 <div class="row"> 
@@ -31,7 +32,7 @@
             <td><%= course.teacher %></td>
             <td> </td>
             <td><%= course.category %></td>
-            <td><%= course.CourseData %></td>
+            <td><%= link_to course.CourseData, :action => 'download_file', :id => course.id %></td>
             <td><%= simple_format(course.note) %></td>
             <td><%= course.created_at.to_date %></td>
             <td><%= link_to 'Show', course %></td>

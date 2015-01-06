@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_course, only: [:show, :edit, :update, :destroy, :download_file]
   before_action :authenticate_user!  
 
   # GET /courses
@@ -63,6 +63,12 @@ class CoursesController < ApplicationController
       format.html { redirect_to courses_url, notice: '已刪除該課程檔案。' }
       format.json { head :no_content }
     end
+  end
+
+  def download_file
+      send_file(@course.CourseData.path,
+                :disposition => 'attachment',
+                :url_based_filename => false) 
   end
 
   private
