@@ -15,8 +15,8 @@
 /log/*.log
 /tmp
 
-.env
+/.env
 
-public/uploads 
+/public/uploads
 
-db/seeds.rb
+/db/seeds.rb

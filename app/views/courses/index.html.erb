@@ -1,12 +1,16 @@
+<%= render :partial => "courses/search_bar" %>
+
+<br>
+
+<ul class="nav nav-tabs">
+  <li role="presentation" class="active"><a href="#">大一</a></li>
+  <li role="presentation"><a href="#">大二</a></li>
+  <li role="presentation"><a href="#">大三</a></li>
+  <li role="presentation"><a href="#">大四</a></li>
+  <li role="presentation"><a href="#">研究所</a></li>
+</ul>
+
 <div class="row"> 
-  
-  <%= render "common/side_bar" %>
-
-  <div class="col-md-10">
-    <div class="group">
-      <%= link_to("新增課程", new_course_path , :class => "btn btn-primary pull-right" ) %>
-    </div>
-
     <table class="table table-hover">
       <thead> 
         <tr>
@@ -37,5 +41,4 @@
         <% end %>
       </tbody>
     </table>
-  </div>
 </div>
