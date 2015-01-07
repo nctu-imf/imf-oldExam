@@ -37,7 +37,7 @@
     </p>
 
     <p>
-      <td><%= link_to 'Download File', :action => 'download_file', :id => @course.id %></td>
+      <%= link_to simple_name(@course.CourseData), :action => 'download_file', :id => @course.id %>
     </p>
   </div>
 

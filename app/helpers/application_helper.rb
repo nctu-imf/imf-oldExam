@@ -16,4 +16,11 @@ module ApplicationHelper
 
     alerts.join("\n").html_safe
   end 
+
+  # simplify upload file name
+  def simple_name(name)
+    result = name.to_s[27..-1]
+    location = result.index('/')
+    result[location + 1..-1]
+  end
 end

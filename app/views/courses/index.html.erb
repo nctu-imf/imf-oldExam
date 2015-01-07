@@ -32,7 +32,7 @@
             <td><%= course.teacher %></td>
             <td> </td>
             <td><%= course.category %></td>
-            <td><%= link_to course.CourseData, :action => 'download_file', :id => course.id %></td>
+            <td><%= link_to simple_name(course.CourseData), :action => 'download_file', :id => course.id %></td>
             <td><%= simple_format(course.note) %></td>
             <td><%= course.created_at.to_date %></td>
             <td><%= link_to 'Show', course %></td>
