@@ -7,7 +7,7 @@ Development
 
 `rake dev:build` Auto clear tmp, log, db:drop, db:create, db:migrate
 
-`rake dev:rebuilt` Automatically build and then db:seed
+`rake dev:rebuild` Automatically build and then db:seed
 
 
 ## Contributing

@@ -35,9 +35,11 @@
             <td><%= link_to simple_name(course.CourseData), :action => 'download_file', :id => course.id %></td>
             <td><%= simple_format(course.note) %></td>
             <td><%= course.created_at.to_date %></td>
-            <td><%= link_to 'Show', course %></td>
-            <td><%= link_to 'Edit', edit_course_path(course) %></td>
-            <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% unless current_user.email == 'imf@gmail.com' %>
+              <td><%= link_to 'Show', course %></td>
+              <td><%= link_to 'Edit', edit_course_path(course) %></td>
+              <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>
