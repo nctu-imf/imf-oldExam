@@ -1,3 +1,19 @@
+<div class="landing-block">
+  <div class="landing-inner">
+    <h1 class="landing-title"> 資財 考古題 </h1>
+
+    <div class="landing-desc">
+      <p class="lead">
+        <%= link_to("資財 考古題系統", "/") %> 是一個提供資財系同學鑑古往而知今來的網站。
+      </p>
+      <p class="lead">
+        請大家多多提供考古題造福學弟妹!
+      </p>
+    </div>
+
+  </div>
+</div>
+
 <%= render :partial => "courses/search_bar" %>
 
 <br>
@@ -6,7 +22,7 @@
   <ul id="myTab" class="nav nav-tabs" role="tablist">
     <% @grades.each_with_index do |grade, i| %>
       <%= content_tag :li do %>
-        <%= link_to(grade.name, grade_path(grade), :data => { :toggle => :tab } ) %>
+        <%= link_to(grade.name, grade_path(grade), :data => { :toggle => :tab }) %>
       <% end %>
     <% end %>
   </ul>
