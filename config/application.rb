@@ -23,5 +23,8 @@ module OldExam
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.i18n.default_locale = "zh-TW"
+
+    # Deal with the file name with non-ascii letters causes encoding error
+    CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
   end
 end
