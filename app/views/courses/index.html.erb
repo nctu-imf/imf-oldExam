@@ -29,7 +29,7 @@
       <tbody>
         <% @courses.each do |course| %>  
           <tr>
-            <td><%= course.grade %></td>
+            <td><%= course.grade.name %></td>
             <td><%= course.year %></td>
             <td><%= course.teacher %></td>
             <td> </td>

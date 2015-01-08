@@ -11,18 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150105185546) do
+ActiveRecord::Schema.define(version: 20150108104257) do
 
   create_table "courses", force: true do |t|
     t.string   "name"
     t.string   "category"
     t.integer  "year"
-    t.string   "grade"
+    t.string   "grade_id"
     t.string   "teacher"
     t.text     "note"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "CourseData"
+  end
+
+  create_table "grades", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

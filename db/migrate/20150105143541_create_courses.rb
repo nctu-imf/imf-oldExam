@@ -4,7 +4,7 @@ class CreateCourses < ActiveRecord::Migration
       t.string :name
       t.string :category
       t.integer :year
-      t.string :grade
+      t.string :grade_id
       t.string :teacher
       t.text :note
 
