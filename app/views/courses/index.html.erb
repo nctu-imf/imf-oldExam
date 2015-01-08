@@ -21,9 +21,13 @@
 <div class="bs-example bs-example-tabs">
   <ul id="myTab" class="nav nav-tabs" role="tablist">
     <% @grades.each_with_index do |grade, i| %>
-      <%= content_tag :li do %>
-        <%= link_to(grade.name, grade_path(grade), :data => { :toggle => :tab }) %>
+      <% active_flag = "active" if i == 0 %>
+      <%= content_tag :li , :class => active_flag do %>
+        <%= link_to(grade.name, grade_path(grade), :data => { :toggle => :tab } ) %>
       <% end %>
     <% end %>
   </ul>
+  <div id="myTabContent" class="tab-content">
+    <%= render 'courses/item' %>
+  </div>
 </div>
