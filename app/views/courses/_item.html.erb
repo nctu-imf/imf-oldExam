@@ -2,10 +2,11 @@
       <thead> 
         <tr>
           <th> 西元年 </th>
+          <th> 課名 </th>
           <th> 教授 </th>
           <th> 上傳的人 </th>
           <th> 類型 </th>
-          <th> 檔案名稱 </th>
+          <th> 檔案名稱(下載) </th>
           <th> 備註 </th>      
           <th> 上傳時間 </th>
         </tr>
@@ -15,6 +16,7 @@
         <% @courses.each do |course| %>  
           <tr>
             <td><%= course.year %></td>
+            <td><%= course.name %></td>
             <td><%= course.teacher %></td>
             <td> </td>
             <td><%= course.category %></td>
