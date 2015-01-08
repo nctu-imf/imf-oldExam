@@ -1,0 +1,34 @@
+    <table class="table table-hover">
+      <thead> 
+        <tr>
+          <th> 西元年 </th>
+          <th> 教授 </th>
+          <th> 上傳的人 </th>
+          <th> 類型 </th>
+          <th> 檔案名稱 </th>
+          <th> 備註 </th>      
+          <th> 上傳時間 </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @courses.each do |course| %>  
+          <tr>
+            <td><%= course.year %></td>
+            <td><%= course.teacher %></td>
+            <td> </td>
+            <td><%= course.category %></td>
+            <td>
+              <%= link_to simple_name(course.CourseData), :controller => :courses, :action => 'download_file', :id => course.id %>
+            </td>
+            <td><%= simple_format(course.note) %></td>
+            <td><%= course.created_at.to_date %></td>
+            <% unless current_user.email == 'imf@gmail.com' %>
+              <td><%= link_to 'Show', course %></td>
+              <td><%= link_to 'Edit', edit_course_path(course) %></td>
+              <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
