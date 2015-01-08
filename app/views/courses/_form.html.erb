@@ -16,11 +16,14 @@
       <br>
       <%= f.text_field :name, :class => "form-control", :placeholder => "課程名稱" %>
       <br>
-      <%= f.text_field :category, :class => "form-control", :placeholder => "種類" %>
+      <% categories = ['期中考', '期末考', '上機考', '小考', '參考資料'] %>
+      <%= f.select(:category, categories.collect {|c| [c.to_s,c.to_s]}, {:include_blank => "種類"}, {:class => "form-control"} ) %>
       <br>
-      <%= f.number_field :year, :class => "form-control", :placeholder => "西元年" %>
+      <% dates = 2006..Date.today.year %>
+      <%= f.select(:year, dates.collect {|d| [d.to_s,d.to_s]}, {:include_blank => "西元年"}, {:class => "form-control"} ) %>
       <br>
-      <%= f.number_field :grade, :class => "form-control", :placeholder => "年級" %>
+      <% categories = ['大一', '大二', '大三', '大四', '研究所', '其他'] %>
+      <%= f.select(:grade, categories.collect {|g| [g.to_s,g.to_s]}, {:include_blank => "年級"}, {:class => "form-control"} ) %>
       <br>
       <%= f.text_field :teacher, :class => "form-control", :placeholder => "老師" %>
       <br>

@@ -15,6 +15,7 @@
     <table class="table table-hover">
       <thead> 
         <tr>
+          <th> 年級 </th>
           <th> 西元年 </th>
           <th> 教授 </th>
           <th> 上傳的人 </th>
@@ -28,6 +29,7 @@
       <tbody>
         <% @courses.each do |course| %>  
           <tr>
+            <td><%= course.grade %></td>
             <td><%= course.year %></td>
             <td><%= course.teacher %></td>
             <td> </td>
