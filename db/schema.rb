@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20150108104257) do
     t.string   "name"
     t.string   "category"
     t.integer  "year"
-    t.string   "grade_id"
+    t.integer  "grade_id"
     t.string   "teacher"
     t.text     "note"
     t.datetime "created_at"
