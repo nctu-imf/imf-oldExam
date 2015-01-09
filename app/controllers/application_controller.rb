@@ -11,6 +11,12 @@ class ApplicationController < ActionController::Base
 	  I18n.locale = session[:locale] || I18n.default_locale
 	end
 
+  # Override devise's method
+  # Redirect to courses page after user signed in
+  def after_sign_in_path_for(resource)
+    courses_path
+  end
+
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
