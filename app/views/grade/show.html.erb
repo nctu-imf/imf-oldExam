@@ -12,6 +12,10 @@
     <% end %>
   </ul>
   <div id="myTabContent" class="tab-content">
+    <h2>
+      <%= link_to('打包下載', '#') %>
+      <%= link_to(@grade.name + '課程', grade_path(@grade), :style => "color: black;") %>    
+    </h2>
     <%= render 'courses/item' %>
   </div>
 </div>
