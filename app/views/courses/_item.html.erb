@@ -18,17 +18,19 @@
             <td><%= course.year %></td>
             <td><%= course.name %></td>
             <td><%= course.teacher %></td>
-            <td> </td>
+            <td><%= course_owner(course) %></td>
             <td><%= course.category %></td>
             <td>
               <%= link_to simple_name(course.CourseData), :controller => :courses, :action => 'download_file', :id => course.id %>
             </td>
             <td><%= simple_format(course.note) %></td>
             <td><%= course.created_at.to_date %></td>
-            <% unless current_user.email == 'imf@gmail.com' %>
-              <td><%= link_to 'Show', course %></td>
-              <td><%= link_to 'Edit', edit_course_path(course) %></td>
-              <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% if current_user && course.editable_by?(current_user) %>
+              <td>
+                <%= link_to '顯示', course, class: "btn btn-default btn-xs" %>
+                <%= link_to '更新', edit_course_path(course), class: "btn btn-default btn-xs" %>
+                <%= link_to '刪除', course, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-xs" %>
+              </td>
             <% end %>
           </tr>
         <% end %>
