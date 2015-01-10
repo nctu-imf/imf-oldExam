@@ -3,9 +3,16 @@
 
 <br>
 <div class="search-result">
-
-  <table class="table table-borderd">
-    <%= render :partial => "courses/item", :collection => @courses, :as => :course %>
-  </table>
-
+  <% if @courses.blank? %>
+    <div class="well landing">
+      <h3 class="text-center"> 
+        您搜尋的內容不存在，回到
+        <%= link_to '課程', courses_path %>
+      </h3>
+    </div>
+  <% else %>
+    <table class="table table-borderd">
+      <%= render :partial => "courses/item", :collection => @courses, :as => :course %>
+    </table>
+  <% end %>
 </div>
