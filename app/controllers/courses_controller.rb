@@ -1,6 +1,7 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :download_file]
   before_action :authenticate_user!  
+  before_action :validate_search_key , :only => [:search]
 
   # GET /courses
   # GET /courses.json
@@ -75,6 +76,25 @@ class CoursesController < ApplicationController
       send_file(@course.CourseData.path,
                 :disposition => 'attachment',
                 :url_based_filename => false) 
+  end
+
+  def search
+    if @query_string.present?
+      @courses = Course.ransack(@search_criteria).result(:distinct => true)
+    end
+  end
+
+  protected
+
+  # 處理params[:q]拿到的資料，把特殊字元拿掉
+  def validate_search_key
+    @query_string = params[:q].gsub(/\\|\'|\/|\?/, "") if params[:q].present?
+    @search_criteria = search_criteria(@query_string)
+  end
+
+  # 告訴controller我們要找的資料範圍
+  def search_criteria(query_string)
+    { :name_or_teacher_cont => query_string }
   end
 
   private
