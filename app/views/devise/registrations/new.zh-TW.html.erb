@@ -8,6 +8,8 @@
 
     <div class="form-inputs">
       <br>
+      <%= f.text_field :name, autofocus: true, :class => "form-control", :placeholder => "使用者名稱" %>
+      <br>
       <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "信箱" %>
       <br>
       <%= f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "密碼" %>

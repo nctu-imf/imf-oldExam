@@ -23,6 +23,16 @@ class ApplicationController < ActionController::Base
 
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
+  before_filter :configure_permitted_parameters, if: :devise_controller?
+
+
+   protected
+
+   def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :email, :password, :password_confirmation) }
+    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :email, :password, :password_confirmation, :current_password) }
+   end
+
   private
     def record_not_found
       flash.now[:alert] = '你輸入了錯誤的網址喔！'
