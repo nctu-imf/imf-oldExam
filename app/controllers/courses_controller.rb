@@ -7,7 +7,7 @@ class CoursesController < ApplicationController
   # GET /courses.json
   def index
     @grades = Grade.all
-    @courses = @grades.first.courses.order('year desc')
+    @courses = @grades.first.courses.recent
   end
 
   # GET /courses/1
