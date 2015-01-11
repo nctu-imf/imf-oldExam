@@ -1,17 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
+  
+  <meta charset="UTF-8">
   <title>NctuIMF考古題系統</title>
+  
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
 </head>
+
 	<%= render "common/navbar" %>
+
 <body>
+
 	<div class="container">
+
 		<%= notice_message %>
-		<%= yield %>
-	</div>
+	
+  	<%= yield %>
+  
+    <%= render :partial => "common/bootstrap_modal" %>
+	
+  </div>
 </body>
-	<%= render "common/footer" %>
+	
+  <%= render "common/footer" %>
+
 </html>
