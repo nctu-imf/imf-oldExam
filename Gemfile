@@ -52,3 +52,4 @@ gem "rmagick", :require => 'RMagick'
 
 gem 'ransack'
 
+gem 'simple_form'

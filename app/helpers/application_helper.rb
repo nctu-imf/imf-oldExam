@@ -21,6 +21,6 @@ module ApplicationHelper
   def simple_name(name)
     result = name.to_s[27..-1]
     location = result.index('/')
-    result[location + 1..-1]
+    truncate(result[location + 1..-1], length: 20)
   end
 end

@@ -1,4 +1,40 @@
-<div class="row">
-  <h1 class="text-center">修改課程檔案</h1>
-  <%= render 'form' %>
+<div class="new-course">
+
+
+  <p class="new-course-desc">
+    修改課程資訊與檔案。
+   </p>  
+
+  <hr>
+
+  <%= simple_form_for @course,  html: { class: 'form-horizontal' } , :wrapper => :horizontal_form,  :wrapper_mappings => {    check_boxes: :horizontal_radio_and_checkboxes,    radio_buttons: :horizontal_radio_and_checkboxes,    file: :horizontal_file_input,    boolean: :horizontal_boolean } do |f| %>
+        
+        <%= f.input :name, :label => "課程名稱", :hint => "“演算法概論” or “資料結構”" %>
+
+        <% categories = ['期中考', '期末考', '上機考', '小考', '參考資料'] %>
+        <%= f.input :category, :collection => categories, :label => "種類", :prompt => "選擇檔案種類" %>
+
+        <% dates = 2006..Date.today.year %>
+        <%= f.input :year, :collection => dates, :label => "西元年", :prompt => "請選擇開課西元年", :hint => "輸入開課年份以供參考" %>
+        
+        <%= f.input :grade_id, :collection => Grade.all, :label => "年級", :prompt => "開課年級", :hint => "若無法判斷，請選擇 “其他”" %>
+        
+        
+        <%= f.input :teacher, :label => "教授" %>
+
+        <%= f.input :note, :label => "備註" , :hint => "Example: 考很多，一定要看！", :input_html => { :rows => 3 } %>
+        
+
+        <%= f.input :CourseData, :label => "選擇檔案" %>
+      
+      <hr>
+      
+      <div class="form-group text optional course_description">
+        <label class="text optional col-sm-1 control-label" for="course_description"></label>
+        <div class="col-sm-11">
+            <%= f.submit "儲存修改" , :class => "btn btn-lg btn-danger" %>
+        </div>
+      </div>
+  <% end %>
+
 </div>
