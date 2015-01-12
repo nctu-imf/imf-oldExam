@@ -27,7 +27,6 @@
             <td><%= course.created_at.to_date %></td>
             <% if current_user && course.editable_by?(current_user) %>
               <td>
-                <%= link_to '顯示', course, class: "btn btn-default btn-xs" %>
                 <%= link_to '更新', edit_course_path(course), class: "btn btn-default btn-xs" %>
                 <%= link_to '刪除', course, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-xs" %>
               </td>

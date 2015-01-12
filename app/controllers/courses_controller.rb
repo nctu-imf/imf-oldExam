@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :download_file]
+  before_action :set_course, only: [:download_file]
   before_action :authenticate_user!  
   before_action :validate_search_key , :only => [:search]
 
@@ -8,11 +8,6 @@ class CoursesController < ApplicationController
   def index
     @grades = Grade.all
     @courses = @grades.first.courses.recent
-  end
-
-  # GET /courses/1
-  # GET /courses/1.json
-  def show
   end
 
   # GET /courses/new
@@ -33,8 +28,8 @@ class CoursesController < ApplicationController
     respond_to do |format|
       if @course.save
         # format.html { redirect_to @course, notice: 'Course was successfully created.' }
-        format.html { redirect_to @course, notice: '課程已成功新增！' }
-        format.json { render :show, status: :created, location: @course }
+        format.html { redirect_to courses_path, notice: '課程已成功新增！' }
+        format.json { render :index, status: :created, location: @courses }
       else
         format.html { render :new }
         format.json { render json: @course.errors, status: :unprocessable_entity }
@@ -50,8 +45,8 @@ class CoursesController < ApplicationController
     respond_to do |format|
       if @course.update(course_params)
         # format.html { redirect_to @course, notice: 'Course was successfully updated.' }
-        format.html { redirect_to @course, notice: '修改成功！' }
-        format.json { render :show, status: :ok, location: @course }
+        format.html { redirect_to courses_path, notice: '修改成功！' }
+        format.json { render :index, status: :ok, location: @course }
       else
         format.html { render :edit }
         format.json { render json: @course.errors, status: :unprocessable_entity }
