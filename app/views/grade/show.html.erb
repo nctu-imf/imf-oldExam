@@ -3,6 +3,7 @@
 <br>
 
 <div class="bs-example bs-example-tabs">
+  
   <ul id="myTab" class="nav nav-tabs" role="tablist">
     <% @grades.each_with_index do |grade, i| %>
       <% active_flag = "active" if i + 1 == @grade.id %>
@@ -11,11 +12,18 @@
       <% end %>
     <% end %>
   </ul>
+  
   <div id="myTabContent" class="tab-content">
+    
     <h2>
       <%= link_to('打包下載', '#') %>
       <%= link_to(@grade.name + '課程', grade_path(@grade), :style => "color: black;") %>    
     </h2>
-    <%= render 'courses/item' %>
+    
+    <table class="table table-hover">
+      <%= render :partial => "courses/head" %>
+      <%= render :partial => "courses/item", :collection => @courses, :as => :course %>
+    </table>
+  
   </div>
 </div>

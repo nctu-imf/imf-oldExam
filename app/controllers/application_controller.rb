@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   # Override devise's method
   # Redirect to courses page after user signed in
   def after_sign_in_path_for(resource)
-    courses_path
+    grade_path(1)  
   end
 
   # Prevent CSRF attacks by raising an exception.

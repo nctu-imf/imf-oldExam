@@ -3,13 +3,6 @@ class CoursesController < ApplicationController
   before_action :authenticate_user!  
   before_action :validate_search_key , :only => [:search]
 
-  # GET /courses
-  # GET /courses.json
-  def index
-    @grades = Grade.all
-    @courses = @grades.first.courses.recent
-  end
-
   # GET /courses/new
   def new
     @course = Course.new
@@ -28,7 +21,7 @@ class CoursesController < ApplicationController
     respond_to do |format|
       if @course.save
         # format.html { redirect_to @course, notice: 'Course was successfully created.' }
-        format.html { redirect_to courses_path, notice: '課程已成功新增！' }
+        format.html { redirect_to grade_path(1), notice: '課程已成功新增！' }
         format.json { render :index, status: :created, location: @courses }
       else
         format.html { render :new }
@@ -45,7 +38,7 @@ class CoursesController < ApplicationController
     respond_to do |format|
       if @course.update(course_params)
         # format.html { redirect_to @course, notice: 'Course was successfully updated.' }
-        format.html { redirect_to courses_path, notice: '修改成功！' }
+        format.html { redirect_to grade_path(1), notice: '修改成功！' }
         format.json { render :index, status: :ok, location: @course }
       else
         format.html { render :edit }
@@ -62,7 +55,7 @@ class CoursesController < ApplicationController
     @course.destroy
     respond_to do |format|
       # format.html { redirect_to courses_url, notice: 'Course was successfully destroyed.' }
-      format.html { redirect_to courses_url, notice: '已刪除該課程檔案。' }
+      format.html { redirect_to grade_path(1), notice: '已刪除該課程檔案。' }
       format.json { head :no_content }
     end
   end

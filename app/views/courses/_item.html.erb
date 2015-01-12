@@ -1,37 +1,24 @@
-    <table class="table table-hover">
-      <thead> 
-        <tr>
-          <th> 西元年 </th>
-          <th> 課名 </th>
-          <th> 教授 </th>
-          <th> 上傳的人 </th>
-          <th> 類型 </th>
-          <th> 檔案名稱(下載) </th>
-          <th> 備註 </th>      
-          <th> 上傳時間 </th>
-        </tr>
-      </thead>
+<tr>
 
-      <tbody>
-        <% @courses.each do |course| %>  
-          <tr>
-            <td><%= course.year %></td>
-            <td><%= course.name %></td>
-            <td><%= course.teacher %></td>
-            <td><%= course_owner(course) %></td>
-            <td><%= course.category %></td>
-            <td>
-              <%= link_to simple_name(course.CourseData), :controller => :courses, :action => 'download_file', :id => course.id %>
-            </td>
-            <td><%= simple_format(course.note) %></td>
-            <td><%= course.created_at.to_date %></td>
-            <% if current_user && course.editable_by?(current_user) %>
-              <td>
-                <%= link_to '更新', edit_course_path(course), class: "btn btn-default btn-xs" %>
-                <%= link_to '刪除', course, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-xs" %>
-              </td>
-            <% end %>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+  <td><%= course.year %></td>
+  
+  <td><%= course.name %></td>
+  
+  <td><%= course.teacher %></td>
+  
+  <td><%= render_course_owner(course) %></td>
+  
+  <td><%= course.category %></td>
+  
+  <td><%= render_course_download course %></td>
+
+  <td><%= render_course_note(course) %></td>
+  
+  <td><%= render_course_year(course) %></td>
+  
+  <td>
+    <%= render_course_update(course) %>
+    <%= render_course_destroy(course) %>
+  </td>
+
+</tr>

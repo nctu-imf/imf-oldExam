@@ -11,7 +11,8 @@
       </h3>
     </div>
   <% else %>
-    <table class="table table-borderd">
+    <table class="table table-hover">
+      <%= render :partial => "courses/head" %>
       <%= render :partial => "courses/item", :collection => @courses, :as => :course %>
     </table>
   <% end %>
