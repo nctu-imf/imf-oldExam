@@ -23,4 +23,14 @@ module ApplicationHelper
     location = result.index('/')
     truncate(result[location + 1..-1], length: 20)
   end
+
+  def render_chinese_version
+    link_to "中文版", :controller => controller.controller_name,
+             :action => controller.action_name, :locale => "zh-TW"
+  end
+
+  def render_engilsh_version
+    link_to "English", :controller => controller.controller_name,
+             :action => controller.action_name, :locale => "en"
+  end
 end

@@ -6,8 +6,8 @@
   <% if @courses.blank? %>
     <div class="well landing">
       <h3 class="text-center"> 
-        您搜尋的內容不存在，回到
-        <%= link_to '課程', courses_path %>
+        您搜尋的內容不存在，回
+        <%= link_to '上一頁', :back %>
       </h3>
     </div>
   <% else %>

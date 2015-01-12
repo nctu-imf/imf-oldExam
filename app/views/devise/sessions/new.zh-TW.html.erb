@@ -1,25 +1,21 @@
 <div class="col-md-4 col-md-offset-4">
-	<h2 class="text-center">登入</h2>
-	<hr>
 
-	<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-	  <div class="form-input">
-		  <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "信箱" %>
-		  <br>
-		  <%= f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "密碼" %>
-	  </div>
+  <h2 class="text-center">登入</h2>
 
-	  <% if devise_mapping.rememberable? -%>
-	  	<br>
-	    <div><%= f.check_box :remember_me %> <%= f.label :remember_me, "記住我" %></div>
-	  <% end -%>
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="form-inputs">
+      <%= f.input :email, :label => "帳號", required: false, autofocus: true %>
+      <%= f.input :password,:label => "密碼", required: false %>
+      <%= f.input :remember_me, :label => "記住我", as: :boolean if devise_mapping.rememberable? %>
+    </div>
 
-	  <hr>
-	  <div class="form-actions">
-    	<%= f.submit "登入", :class => "btn btn-primary" %>
-      </div>
-	<% end %>
+    <div class="form-actions">
+      <hr>
+      <%= f.button :submit, "登入" %>
+    </div>
+  <% end %>
 
-	<hr>
-	<%= render "devise/shared/links" %>
+  <hr>
+  <%= render "devise/shared/links" %>
+
 </div>

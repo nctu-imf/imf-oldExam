@@ -3,28 +3,23 @@
   <h2 class="text-center">註冊</h2>
   <hr>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
 
     <div class="form-inputs">
-      <br>
-      <%= f.text_field :name, autofocus: true, :class => "form-control", :placeholder => "使用者名稱" %>
-      <br>
-      <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "信箱" %>
-      <br>
-      <%= f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "密碼" %>
-
-      <br>
-      <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control", :placeholder => "驗證密碼" %>
+      <%= f.input :name, :label => "姓名", required: true, autofocus: true %>
+      <%= f.input :email, :label => "電子郵件", required: true, autofocus: true %>
+      <%= f.input :password, :label => "密碼", required: true %>
+      <%= f.input :password_confirmation, :label => "確認密碼", required: true %>
     </div>
 
-    <hr>
     <div class="form-actions">
-    	<%= f.submit "提交", :class => "btn btn-primary" %>
+    <hr>
+      <%= f.button :submit, "登入" %>
     </div>
-
   <% end %>
 
   <hr>
   <%= render "devise/shared/links" %>
+
 </div>

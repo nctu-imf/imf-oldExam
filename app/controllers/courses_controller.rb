@@ -63,7 +63,7 @@ class CoursesController < ApplicationController
   def download_file
       send_file(@course.CourseData.path,
                 :disposition => 'attachment',
-                :url_based_filename => false) 
+                :url_based_filename => false)
   end
 
   def search
