@@ -48,7 +48,6 @@ gem "bootstrap-sass"
 gem 'quiet_assets'
 
 gem 'carrierwave'
-gem "rmagick", :require => 'RMagick'
 
 gem 'ransack'
 
