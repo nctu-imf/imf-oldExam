@@ -17,3 +17,7 @@ Grade.create!(:name => "大三")
 Grade.create!(:name => "大四")
 Grade.create!(:name => "研究所")
 Grade.create!(:name => "其他")
+
+Semester.create!(:name => "上學期")
+Semester.create!(:name => "下學期")
+Semester.create!(:name => "暑修")

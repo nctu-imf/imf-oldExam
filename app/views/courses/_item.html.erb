@@ -1,6 +1,9 @@
 <tr>
 
-  <td><%= course.year %></td>
+  <td>
+    <%= course.year %>
+    <%= render_course_semester(course) %>
+  </td>
   
   <td><%= course.name %></td>
   

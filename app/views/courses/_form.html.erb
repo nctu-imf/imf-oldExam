@@ -5,11 +5,13 @@
       <%= f.input :name, :label => "課程名稱", :hint => "“演算法概論” or “資料結構”" %>
 
       <% categories = ['期中考', '期末考', '上機考', '小考', '參考資料'] %>
-      <%= f.input :category, :collection => categories, :label => "種類", :prompt => "選擇檔案種類" %>
+      <%= f.input :category, :collection => categories, :label => "種類", :prompt => "選擇考試種類" %>
 
       <%= f.input :year, :collection => 2006..Date.today.year, :label => "西元年", :prompt => "選擇開課西元年", :hint => "輸入開課年份以供參考" %>
+
+      <%= f.input :semester_id, :collection => Semester.all, :label => "學期", :prompt => "開課學期" %>
       
-      <%= f.input :grade_id, :collection => Grade.all, :label => "年級", :prompt => "開課年級", :hint => "若無法判斷，請選擇 “其他”" %>
+      <%= f.association :grade, :label => "年級", :prompt => "開課年級", :hint => "若無法判斷，請選擇 “其他”" %>
       
       
       <%= f.input :teacher, :label => "教授" %>

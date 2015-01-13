@@ -1,5 +1,9 @@
 module CoursesHelper
 
+  def render_course_semester course
+    Semester.find(course.semester_id).name
+  end
+
   def render_course_owner course
     User.find(course.user_id).name
   end
