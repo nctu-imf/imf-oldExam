@@ -7,6 +7,8 @@ class Course < ActiveRecord::Base
 
   belongs_to :grade
 
+  belongs_to :semester
+
   belongs_to :owner, class_name: "User", foreign_key: :user_id
 
   scope :recent, ->{ order("year DESC") }

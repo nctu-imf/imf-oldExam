@@ -83,6 +83,7 @@ GEM
     mime-types (2.4.3)
     minitest (5.5.1)
     multi_json (1.10.1)
+    mysql2 (0.3.17)
     orm_adapter (0.5.0)
     polyamorous (1.1.0)
       activerecord (>= 3.0)
@@ -183,6 +184,7 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.0)
   jquery-rails
+  mysql2
   quiet_assets
   rails (= 4.1.8)
   rails_best_practices

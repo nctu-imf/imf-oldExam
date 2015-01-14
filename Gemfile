@@ -52,3 +52,5 @@ gem 'carrierwave'
 gem 'ransack'
 
 gem 'simple_form'
+
+gem 'mysql2'
