@@ -54,3 +54,6 @@ gem 'ransack'
 gem 'simple_form'
 
 gem 'mysql2'
+
+gem 'cancancan', '~> 1.10'
+

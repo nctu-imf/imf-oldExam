@@ -1,16 +1,17 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:download_file]
   before_action :authenticate_user!  
   before_action :validate_search_key , :only => [:search]
 
   # GET /courses/new
   def new
     @course = Course.new
+    authorize! :create, @course
   end
 
   # GET /courses/1/edit
   def edit
     @course = current_user.courses.find(params[:id])
+    authorize! :update, @course
   end
 
   # POST /courses
@@ -28,12 +29,14 @@ class CoursesController < ApplicationController
         format.json { render json: @course.errors, status: :unprocessable_entity }
       end
     end
+
+    authorize! :create, @course
   end
 
   # PATCH/PUT /courses/1
   # PATCH/PUT /courses/1.json
   def update
-    @course = current_user.courses.find(params[:id])
+    course_checked_by_admin
 
     respond_to do |format|
       if @course.update(course_params)
@@ -45,12 +48,14 @@ class CoursesController < ApplicationController
         format.json { render json: @course.errors, status: :unprocessable_entity }
       end
     end
+
+    authorize! :update, @course
   end
 
   # DELETE /courses/1
   # DELETE /courses/1.json
   def destroy
-    @course = current_user.courses.find(params[:id])
+    course_checked_by_admin
     
     @course.destroy
     respond_to do |format|
@@ -58,12 +63,15 @@ class CoursesController < ApplicationController
       format.html { redirect_to grade_path(@course.grade_id), notice: '已刪除該課程檔案。' }
       format.json { head :no_content }
     end
+
+    authorize! :destroy, @course
   end
 
   def download_file
-      send_file(@course.CourseData.path,
-                :disposition => 'attachment',
-                :url_based_filename => false)
+    @course = Course.find(params[:id])
+    send_file(@course.CourseData.path,
+              :disposition => 'attachment',
+              :url_based_filename => false)
   end
 
   def search
@@ -86,9 +94,13 @@ class CoursesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_course
-      @course = Course.find(params[:id])
+
+    def course_checked_by_admin
+      if current_user.admin?
+        @course = Course.find(params[:id])
+      else
+        @course = current_user.courses.find(params[:id])
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

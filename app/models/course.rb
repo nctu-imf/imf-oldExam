@@ -13,7 +13,8 @@ class Course < ActiveRecord::Base
 
   scope :recent, ->{ order("year DESC") }
 
+  # this should be put in ability.rb
   def editable_by?(user)
-    user && user == owner
+    user && user == owner || user.admin?
   end
 end
