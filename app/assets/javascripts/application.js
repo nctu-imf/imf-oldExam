@@ -15,4 +15,5 @@
 //= require bootstrap/dropdown
 //= require bootstrap/alert
 //= require bootstrap/modal
+//= require bootstrap-markdown-bundle
 //= require_tree .

@@ -1,0 +1,17 @@
+<tr>
+
+  <td><%= bullet.title %></td>
+  
+  <td><%= bullet.content %></td>
+
+  <td>
+    <% if can? :update, Bullet %>
+      <%= link_to("Edit", edit_bullet_path(bullet), class: "btn btn-sm btn-default")%>
+    <% end %>
+    <% if can? :destroy, Bullet %>
+      <%= link_to("Delete", bullet_path(bullet), class: "btn btn-sm btn-default", method: :delete, data: { confirm: "Are you sure?" } )%>
+    <% end %>
+    </td>
+  <hr>
+  
+</tr>

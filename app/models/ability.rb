@@ -2,10 +2,12 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    user ||= User.new
+
     if user.public?
-      cannot [:create, :update, :destroy], Course
+      cannot :manage, Course
     else
-      can [:create, :update, :destroy], Course
+      can :manage, Course
     end
 
     if user.admin?

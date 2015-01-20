@@ -20,10 +20,8 @@
   <td><%= render_course_year(course) %></td>
   
   <td>
-    <% if can? :update, Course %>
+    <% if can? :manage, Course %>
       <%= render_course_update(course) %>
-    <% end %>
-    <% if can? :destroy, Course %>
       <%= render_course_destroy(course) %>
     <% end %>
   </td>

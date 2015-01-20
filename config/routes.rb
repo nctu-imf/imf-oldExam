@@ -13,5 +13,7 @@ Rails.application.routes.draw do
 
   resources :grade
 
+  resources :bullets
+
   get "/pages/:action" , :controller => "pages"
 end

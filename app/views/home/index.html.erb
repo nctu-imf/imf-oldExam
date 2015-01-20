@@ -13,13 +13,13 @@
   </div>
 </div>
 
+<% if can? :create, Bullet %>
+  <%= link_to 'NEW', new_bullet_path, class: "btn btn-default btn-xs" %>
+<% end %>
+
 <div class="well landing">
   <h2> 公告 </h2>
   <div class="desc">
-    <p>
-      <ul>
-        <li>尚在開發中，許多功能還未作出，敬請期待</li>
-      </ul>
-    </p>
+    <%= render :partial => "bullets/item", :collection => @bullets, :as => :bullet %>
   </div>
 </div>
