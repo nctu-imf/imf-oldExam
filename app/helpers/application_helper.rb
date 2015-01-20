@@ -19,7 +19,7 @@ module ApplicationHelper
 
   # simplify upload file name
   def simple_name(name)
-    result = name.to_s[27..-1]
+    result = name.to_s[21..-1]
     location = result.index('/')
     truncate(result[location + 1..-1], length: 20)
   end

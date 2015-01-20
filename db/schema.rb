@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150120083110) do
+ActiveRecord::Schema.define(version: 20150120150512) do
 
   create_table "bullets", force: true do |t|
     t.string   "title"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20150120083110) do
     t.text     "note"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "CourseData"
+    t.string   "data"
     t.integer  "user_id"
     t.integer  "semester_id"
   end

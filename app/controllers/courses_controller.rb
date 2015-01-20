@@ -64,7 +64,7 @@ class CoursesController < ApplicationController
 
   def download_file
     @course = Course.find(params[:id])
-    send_file(@course.CourseData.path,
+    send_file(@course.data.path,
               :disposition => 'attachment',
               :url_based_filename => false)
   end
@@ -100,6 +100,6 @@ class CoursesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      params.require(:course).permit(:name, :category, :year, :grade_id, :teacher, :note, :CourseData, :semester_id)
+      params.require(:course).permit(:name, :category, :year, :grade_id, :teacher, :note, :data, :semester_id)
     end
 end

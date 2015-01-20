@@ -9,7 +9,7 @@ module CoursesHelper
   end
 
   def render_course_download course
-    link_to simple_name(course.CourseData), :controller => :courses, :action => 'download_file', :id => course.id
+    link_to simple_name(course.data), :controller => :courses, :action => 'download_file', :id => course.id
   end
 
   def render_course_note course

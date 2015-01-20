@@ -11,7 +11,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :grade
+  resources :grade do
+    collection do
+      get :download_file
+    end
+  end
 
   resources :bullets
 
