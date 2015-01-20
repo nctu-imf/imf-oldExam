@@ -35,6 +35,12 @@
               <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
+              <% if can? :manage, Bullet %>
+                <li>
+                  <%= link_to("新增公告", new_bullet_path) %>
+                </li>
+              <% end %>
+              
               <li>
                 <%= link_to("帳號設定", edit_user_registration_path )%>
               </li>

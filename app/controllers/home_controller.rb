@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
-  
+
   def index
-    @bullets = Bullet.all
+    @bullets = Bullet.recent
   end
 end
