@@ -58,3 +58,5 @@ gem 'mysql2'
 gem 'cancancan', '~> 1.10'
 
 gem 'rails-bootstrap-markdown'
+
+gem 'redcarpet'
