@@ -8,6 +8,12 @@ class CoursesController < ApplicationController
     authorize! :create, @course
   end
 
+  def dashboard
+    @courses = Course.order("created_at DESC")
+
+    authorize! :manage, @course
+  end
+
   # GET /courses/1/edit
   def edit
     @course = current_user.courses.find(params[:id])

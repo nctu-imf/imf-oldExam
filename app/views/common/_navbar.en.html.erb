@@ -35,7 +35,11 @@
               <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
+            
               <% if can? :manage, Bullet %>
+                <li>
+                  <%= link_to("Course Management", dashboard_courses_path) %>
+                </li>
                 <li>
                   <%= link_to("Create Anouncement", new_bullet_path) %>
                 </li>

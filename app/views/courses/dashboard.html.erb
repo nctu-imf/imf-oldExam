@@ -1,0 +1,53 @@
+<h2 class="text-center">課程管理</h3>
+
+<%= link_to '新增課程', new_course_path, :class => "btn btn-info pull-right" %>
+
+<table class="table table-hover">
+  <thead> 
+    <tr>
+      <th> 新增時間</th>
+      <th> 年度 </th>
+      <th> 課名 </th>
+      <th> 教授 </th>
+      <th> 上傳的人 </th>
+      <th> 類型 </th>
+      <th> 檔案名稱(下載) </th>
+      <th> 備註 </th>      
+      <th> 上傳時間 </th>
+    </tr>
+  </thead>
+
+  <% @courses.each do |course| %>
+      <tr>
+
+        <td><%= course.created_at.to_date %></td>
+
+        <td>
+          <%= course.year %>
+          <%= render_course_semester(course) %>
+        </td>
+          
+        <td><%= course.name %></td>
+          
+        <td><%= course.teacher %></td>
+          
+        <td><%= render_course_owner(course) %></td>
+          
+        <td><%= course.category %></td>
+          
+        <td><%= render_course_download course %></td>
+
+        <td><%= render_course_note(course) %></td>
+          
+        <td><%= render_course_year(course) %></td>
+          
+        <td>
+          <% if can? :manage, Course %>
+            <%= render_course_update(course) %>
+            <%= render_course_destroy(course) %>
+          <% end %>
+        </td>
+
+      </tr>
+  <% end %>
+</table>

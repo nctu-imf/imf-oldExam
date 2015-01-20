@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :courses do
     collection do
+      get :dashboard
       get :inform
       get :download_file
       get :search
@@ -13,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :grade do
     collection do
-      get :download_file
+      get :download
     end
   end
 
