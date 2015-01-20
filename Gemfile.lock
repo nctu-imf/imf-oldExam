@@ -45,9 +45,11 @@ GEM
       terminal-table (~> 1.4)
     builder (3.2.2)
     cancancan (1.10.1)
-    carrierwave (0.6.2)
+    carrierwave (0.10.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     code_analyzer (0.4.5)
       sexp_processor
     coffee-rails (4.0.1)

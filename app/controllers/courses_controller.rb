@@ -36,17 +36,12 @@ class CoursesController < ApplicationController
   # PATCH/PUT /courses/1
   # PATCH/PUT /courses/1.json
   def update
-    course_checked_by_admin
+    find_course_and_check_is_admin?
 
-    respond_to do |format|
-      if @course.update(course_params)
-        # format.html { redirect_to @course, notice: 'Course was successfully updated.' }
-        format.html { redirect_to grade_path(@course.grade_id), notice: '修改成功！' }
-        format.json { render :index, status: :ok, location: @course }
-      else
-        format.html { render :edit }
-        format.json { render json: @course.errors, status: :unprocessable_entity }
-      end
+    if @course.update(course_params)
+      redirect_to grade_path(@course.grade_id), notice: '課程已修改成功'
+    else
+      render :new
     end
 
     authorize! :update, @course
@@ -55,7 +50,7 @@ class CoursesController < ApplicationController
   # DELETE /courses/1
   # DELETE /courses/1.json
   def destroy
-    course_checked_by_admin
+    find_course_and_check_is_admin?
     
     @course.destroy
     respond_to do |format|
@@ -95,7 +90,7 @@ class CoursesController < ApplicationController
 
   private
 
-    def course_checked_by_admin
+    def find_course_and_check_is_admin?
       if current_user.admin?
         @course = Course.find(params[:id])
       else
