@@ -9,21 +9,25 @@
   
   <td><%= course.teacher %></td>
   
-  <td><%= render_course_owner(course) %></td>
-  
   <td><%= course.category %></td>
   
   <td><%= render_course_download course %></td>
 
-  <td><%= render_course_note(course) %></td>
-  
-  <td><%= render_course_year(course) %></td>
-  
-  <td>
-    <% if can? :manage, Course %>
-      <%= render_course_update(course) %>
-      <%= render_course_destroy(course) %>
-    <% end %>
-  </td>
+  <% unless mobile_device? %>
+
+    <td><%= render_course_owner(course) %></td>
+
+    <td><%= render_course_note(course) %></td>
+    
+    <td><%= render_course_year(course) %></td>
+    
+    <td>
+      <% if can? :manage, Course %>
+        <%= render_course_update(course) %>
+        <%= render_course_destroy(course) %>
+      <% end %>
+    </td>
+
+  <% end %>
 
 </tr>
