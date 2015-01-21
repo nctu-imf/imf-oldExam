@@ -39,4 +39,10 @@ module CoursesHelper
       link_to '刪除', course, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-xs"
     end
   end
+
+  def render_course_fresh_state(course)
+    if course.created_at >= Date.today - 1.days
+      content_tag(:span, "NEW", :class => "label label-success")
+    end
+  end
 end

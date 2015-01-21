@@ -17,6 +17,7 @@
 
   <% else %>
     <td>
+      <%= render_course_fresh_state(course) %>
       <%= course.year %>
       <%= render_course_semester(course) %>
     </td>
