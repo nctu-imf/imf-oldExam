@@ -16,7 +16,7 @@
   <div id="myTabContent" class="tab-content">
     
     <h2>
-      <%= link_to '打包下載', :controller => :grade, :action => 'download_file' %>
+      <%= link_to '打包下載', :controller => :grade, :action => 'download', :id => @grade.id %>
       <%= link_to(@grade.name + '課程', grade_path(@grade), :style => "color: black;") %>    
     </h2>
     

@@ -60,3 +60,6 @@ gem 'cancancan', '~> 1.10'
 gem 'rails-bootstrap-markdown'
 
 gem 'redcarpet'
+
+gem 'rubyzip', '>= 1.0.0'
+
