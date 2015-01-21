@@ -1,15 +1,23 @@
 <thead> 
   <tr>
-    <th> 年度 </th>
-    <th> 課名 </th>
-    <th> 教授 </th>
-    <th> 類型 </th>
-    <th> 檔案名稱(下載) </th>
+    <% if mobile_device? %>
+
+      <th width="25%"> 年度 </th>
+      <th width="25%"> 課名 </th>
+      <th width="25%"> 教授 </th>
+      <th width="25%"> 下載 </th>
     
-    <% unless mobile_device? %>
-        <th> 備註 </th>      
-        <th> 上傳的人 </th>
-        <th> 上傳時間 </th>
+    <% else %>
+
+      <th> 年度 </th>
+      <th> 課名 </th>
+      <th> 教授 </th>
+      <th> 類型 </th>
+      <th> 下載 </th>
+      <th> 備註 </th>      
+      <th> 上傳的人 </th>
+      <th> 上傳時間 </th>
+    
     <% end %>
   </tr>
 </thead>

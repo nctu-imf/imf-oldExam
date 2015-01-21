@@ -21,7 +21,7 @@ module ApplicationHelper
   def simple_name(name)
     result = name.to_s[21..-1]
     location = result.index('/')
-    truncate(result[location + 1..-1], length: 20)
+    truncate(result[location + 1..-1], length: 12)
   end
 
   def render_chinese_version

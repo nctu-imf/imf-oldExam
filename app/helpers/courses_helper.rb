@@ -1,7 +1,15 @@
 module CoursesHelper
 
   def render_course_semester course
-    Semester.find(course.semester_id).name
+    semester = Semester.find(course.semester_id).name
+    case semester
+      when "上學期"
+        "上"
+      when "下學期"
+        "下"
+      else
+        "暑"  
+    end
   end
 
   def render_course_owner course

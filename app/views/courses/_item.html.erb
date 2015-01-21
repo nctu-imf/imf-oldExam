@@ -1,19 +1,33 @@
 <tr>
 
-  <td>
-    <%= course.year %>
-    <%= render_course_semester(course) %>
-  </td>
+  <% if mobile_device? %>
+    
+    <td width="25%">
+      <%= course.year %>    
+      <%= render_course_semester(course) %>
+      <br>
+      <%= course.category %>
+    </td>
   
-  <td><%= course.name %></td>
-  
-  <td><%= course.teacher %></td>
-  
-  <td><%= course.category %></td>
-  
-  <td><%= render_course_download course %></td>
+    <td width="25%"><%= course.name %></td>
+    
+    <td width="25%"><%= course.teacher %></td>
+    
+    <td width="25%"><%= render_course_download course %></td>
 
-  <% unless mobile_device? %>
+  <% else %>
+    <td>
+      <%= course.year %>
+      <%= render_course_semester(course) %>
+    </td>
+  
+    <td><%= course.name %></td>
+    
+    <td><%= course.teacher %></td>
+    
+    <td><%= course.category %></td>
+    
+    <td><%= render_course_download course %></td>
 
     <td><%= render_course_owner(course) %></td>
 
@@ -27,7 +41,6 @@
         <%= render_course_destroy(course) %>
       <% end %>
     </td>
-
   <% end %>
 
 </tr>
