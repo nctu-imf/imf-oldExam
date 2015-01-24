@@ -1,0 +1,11 @@
+<h1 class="text-center"><%= @user.name %>貢獻的考古題</h1>
+
+<div class="">
+    <% if @user.courses.blank? %>
+      <h3>你還沒有上傳任何考古題喔～</h3>
+    <% else %>
+      <table class="table table-hover"">
+        <%= render partial: "courses/item", collection: @courses, as: :course %>
+      </table>
+    <% end %>
+</div>

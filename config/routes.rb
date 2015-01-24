@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+ 
   devise_for :users
   root 'home#index'
 
@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   end
 
   resources :bullets
+
+  resources :users
 
   get "/pages/:action" , :controller => "pages"
 end
