@@ -8,12 +8,12 @@ module CoursesHelper
       when "下學期"
         "下"
       else
-        "暑"  
+        "暑"
     end
   end
 
   def render_course_owner course
-    User.find(course.user_id).name
+    course.owner.name
   end
 
   def render_course_download course

@@ -4,7 +4,7 @@
 <%= markdown bullet.content %>
 
 <br><br>
-<%= bullet.created_at.to_date %>
+公布於 <%= bullet.updated_at.to_date %>
 
 <% if can? :manage, Bullet %>
   <%= link_to("修改", edit_bullet_path(bullet), class: "btn btn-sm btn-default pull-right")%>

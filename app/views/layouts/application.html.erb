@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>NctuIMF考古題系統</title>
-  
+
   <%= stylesheet_link_tag    'application' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -18,12 +18,12 @@
     <%= render "common/navbar" %>
 
 		<%= notice_message %>
-	
+
   	<%= yield %>
-  
+
     <%= render :partial => "common/bootstrap_modal" %>
-	
-    <!-- <%= render "common/footer" %> -->
+
+    <!--<%= render "common/footer" %>-->
   </div>
 </body>
 </html>
