@@ -39,6 +39,10 @@
                 <li>
                   <%= link_to("Create Anouncement", new_bullet_path) %>
                 </li>
+              <% elsif current_user.public == false %>
+                <li>
+                  <%= link_to("Contribution", user_path(current_user)) %>
+                </li>
               <% end %>
 
               <li>

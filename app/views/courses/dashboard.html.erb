@@ -51,3 +51,7 @@
       </tr>
   <% end %>
 </table>
+
+<div class="text-center">
+<%= will_paginate @courses, previous_label: "上一頁", next_label: "下一頁",renderer: BootstrapPagination::Rails%>
+</div>

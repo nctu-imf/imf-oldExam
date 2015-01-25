@@ -30,13 +30,13 @@ module CoursesHelper
 
   def render_course_update course
     if current_user && course.editable_by?(current_user)
-      link_to '更新', edit_course_path(course), class: "btn btn-default btn-xs"
+      link_to '更新', edit_course_path(course), class: "btn btn-info btn-xs"
     end
   end
 
   def render_course_destroy course
     if current_user && course.editable_by?(current_user)
-      link_to '刪除', course, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default btn-xs"
+      link_to '刪除', course, method: :delete, data: { confirm: '確定要刪除嗎?' }, class: "btn btn-danger btn-xs"
     end
   end
 

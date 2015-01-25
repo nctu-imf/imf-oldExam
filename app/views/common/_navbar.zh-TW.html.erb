@@ -38,24 +38,22 @@
                 <li>
                   <%= link_to("新增公告", new_bullet_path) %>
                 </li>
-              <% end %>
-              
-              <% unless current_user.public %>
+              <% elsif current_user.public == false %>
               <li>
                 <%= link_to("貢獻", user_path(current_user)) %>
               <li>
               <% end %>
+
               <li>
                 <%= link_to("帳號設定", edit_user_registration_path )%>
               </li>
-              <li> 
+              <li>
                 <%= link_to("登出", destroy_user_session_path, :method => :delete ) %>
               </li>
             </ul>
           </li>
-        
-        <% end %>      
-      
+
+        <% end %>
       </ul>
     </div>
   </div>

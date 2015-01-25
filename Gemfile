@@ -63,3 +63,5 @@ gem 'redcarpet'
 
 gem 'rubyzip', '>= 1.0.0'
 
+gem 'will_paginate-bootstrap'
+

@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :authenticate_user!  
+  before_action :authenticate_user!
   before_action :validate_search_key , :only => [:search]
 
   # GET /courses/new
@@ -9,7 +9,7 @@ class CoursesController < ApplicationController
   end
 
   def dashboard
-    @courses = Course.order("created_at DESC")
+    @courses = Course.order("created_at DESC").paginate(:per_page => 12, :page => params[:page])
 
     authorize! :manage, @course
   end
