@@ -16,3 +16,7 @@
  *= require landing
  *= require courses
  */
+
+body {
+  background: url('light-wool-bg.png');
+}
