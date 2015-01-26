@@ -30,6 +30,8 @@ GEM
     arel (5.0.1.20140414130214)
     awesome_print (1.6.1)
     bcrypt (3.1.7)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     bootstrap-sass (3.2.0.1)
       sass (~> 3.2)
     brakeman (3.0.0)
@@ -60,6 +62,7 @@ GEM
       execjs
     coffee-script-source (1.8.0)
     colored (1.2)
+    debug_inspector (0.0.2)
     devise (3.3.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -178,6 +181,11 @@ GEM
       json (>= 1.8.0)
     warden (1.2.3)
       rack (>= 1.0)
+    web-console (2.0.0)
+      activemodel (~> 4.0)
+      binding_of_caller (>= 0.7.2)
+      railties (~> 4.0)
+      sprockets-rails (>= 2.0, < 4.0)
     will_paginate (3.0.7)
     will_paginate-bootstrap (1.0.1)
       will_paginate (>= 3.0.3)
@@ -208,4 +216,5 @@ DEPENDENCIES
   spring
   sqlite3
   uglifier (>= 1.3.0)
+  web-console (~> 2.0)
   will_paginate-bootstrap

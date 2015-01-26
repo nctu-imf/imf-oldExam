@@ -41,6 +41,7 @@ gem 'devise'
 group :development do
   gem "brakeman", require: false
   gem "rails_best_practices", require: false
+  gem 'web-console', '~> 2.0'
 end
 
 gem "bootstrap-sass"
