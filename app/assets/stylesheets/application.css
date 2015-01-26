@@ -20,3 +20,11 @@
 body {
   background: url('light-wool-bg.png');
 }
+
+::selection {
+  background: #d0d0d0;
+ }
+
+::-moz-selection {
+   background: #d0d0d0;
+}

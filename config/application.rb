@@ -26,5 +26,8 @@ module OldExam
 
     # Deal with the file name with non-ascii letters causes encoding error
     CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/
+
+    # Share console with white list ips
+    # config.web_console.whitelisted_ips = %w( 127.0.0.1 192.168.0.100 )
   end
 end
