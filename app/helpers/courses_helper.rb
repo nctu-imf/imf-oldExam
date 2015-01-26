@@ -43,6 +43,8 @@ module CoursesHelper
   def render_course_fresh_state(course)
     if course.created_at >= Date.today - 1.days
       content_tag(:span, "NEW", :class => "label label-success")
+    elsif course.updated_at >= Date.today - 1.days
+      content_tag(:span, "MOD", :class => "label label-warning")
     end
   end
 end
