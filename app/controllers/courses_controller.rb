@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
   before_action :authenticate_user!
-  before_action :validate_search_key , :only => [:search]
+  before_action :validate_search_key, :only => [:search]
 
   # GET /courses/new
   def new
@@ -16,7 +16,8 @@ class CoursesController < ApplicationController
 
   # GET /courses/1/edit
   def edit
-    @course = current_user.courses.find(params[:id])
+    find_course_and_check_is_admin?
+
     authorize! :update, @course
   end
 
@@ -57,7 +58,7 @@ class CoursesController < ApplicationController
   # DELETE /courses/1.json
   def destroy
     find_course_and_check_is_admin?
-    
+
     @course.destroy
     respond_to do |format|
       # format.html { redirect_to courses_url, notice: 'Course was successfully destroyed.' }
