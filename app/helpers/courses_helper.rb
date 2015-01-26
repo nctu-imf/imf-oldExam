@@ -7,8 +7,10 @@ module CoursesHelper
         "上"
       when "下學期"
         "下"
+      when "暑期"
+        "暑期"
       else
-        "暑"
+        "其他"
     end
   end
 
