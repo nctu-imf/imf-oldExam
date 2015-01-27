@@ -18,8 +18,8 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from CanCan::AccessDenied do |exception|
-    flash[:alert] = "你沒有這個權限"
-    redirect_to root_url
+    flash[:warning] = "您目前的帳號沒有這個權限"
+    redirect_to :back
   end
 
   # Prevent CSRF attacks by raising an exception.
@@ -40,7 +40,7 @@ class ApplicationController < ActionController::Base
 
   private
     def record_not_found
-      flash.now[:alert] = '你輸入了錯誤的網址喔！'
+      flash.now[:alert] = '請不要自己輸入網址！'
       render 'home/index', status: 404
     end
 end

@@ -3,10 +3,12 @@
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <a class="navbar-brand" href="/"> 資財考古題 </a>
-      <a class="navbar-brand" href="/grade/1"> 課程 </a>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
+        <li>
+          <%= link_to("課程", "/grade/1") %>
+        </li>
         <li>
           <a class="navbar-brand" href="#">
             <%= link_to("關於本站", "/pages/about") %>
@@ -15,9 +17,6 @@
       </ul>
       <ul class="nav navbar-nav pull-right">
 
-        <li><%= render_chinese_version  %></li>
-        <li><%= render_engilsh_version %></li>
- 
         <% unless current_user %>
 
           <li> <%= link_to("註冊", new_user_registration_path) %> </li>
