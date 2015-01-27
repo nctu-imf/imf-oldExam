@@ -1,21 +1,6 @@
 <%= render 'common/landing' %>
 
-<div class="well landing">
-  <h2> 使用規則  </h2>
-  <div class="desc">
-    <p>
-      <ul>
-        <li>申請個人帳號來瀏覽或是上傳考古題。</li>
-        <li>系上公用帳號為imf@gmail.com，密碼同之前ftp所使用的。</li>
-        <li>請勿亂上傳檔案，有水桶機制XP</li>
-      </ul>  
-    </p>
-  </div>
-</div>
 
-<div class="well landing">
-  <h2> 公告 </h2>
-  <div class="desc">
-    <%= render :partial => "bullets/item", :collection => @bullets, :as => :bullet %>
-  </div>
+<div class="panel panel-default">
+  <%= render :partial => "bullets/item", :collection => @bullets, :as => :bullet %>
 </div>

@@ -7,7 +7,7 @@ class BulletsController < ApplicationController
   end
 
   def create
-    @bullet = Bullet.create(bullet_params)
+    @bullet = current_user.bullets.create(bullet_params)
 
     if @bullet.save
       redirect_to :root, notice: '公告已新增！'
@@ -35,7 +35,7 @@ class BulletsController < ApplicationController
   private
 
   def set_bullet
-    @bullet = Bullet.find(params[:id])
+    @bullet = current_user.bullets.find(params[:id])
   end
 
   def bullet_params
