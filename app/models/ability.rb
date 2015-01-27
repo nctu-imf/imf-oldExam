@@ -6,6 +6,7 @@ class Ability
 
     if user.public?
       cannot :manage, Course
+      cannot :vote, Course
     else
       can :manage, Course
     end
