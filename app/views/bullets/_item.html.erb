@@ -1,13 +1,15 @@
 
 <div class="panel-heading">
-  <h3 class="panel-title"><%= bullet.title %></h3>
+  <h3 class="panel-title"><%= bullet.title %>
+    <div class="pull-right">
+      <%= bullet.owner.name %> @
+      <%=bullet.updated_at.to_date %>
+    </div>
+  </h3>
 </div>
 
 <div class="panel-body">
   <%= markdown bullet.content %>
-
-<br><br>
-<%= bullet.owner.name %> 公布於 <%= bullet.updated_at.to_date %>
 
 <% if can? :manage, Bullet %>
   <%= link_to("修改", edit_bullet_path(bullet), class: "btn btn-sm btn-default pull-right")%>
