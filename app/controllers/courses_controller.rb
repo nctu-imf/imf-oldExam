@@ -82,6 +82,18 @@ class CoursesController < ApplicationController
     end
   end
 
+  def upvote
+    @course = Course.find(params[:id])
+    @course.upvote_by current_user
+    redirect_to :back
+  end
+
+  def downvote
+    @course = Course.find(params[:id])
+    @course.downvote_from current_user
+    redirect_to :back
+  end
+
   protected
 
   # 處理params[:q]拿到的資料，把特殊字元拿掉

@@ -66,3 +66,4 @@ gem 'rubyzip', '>= 1.0.0'
 
 gem 'will_paginate-bootstrap'
 
+gem 'acts_as_votable', '~> 0.10.0'
