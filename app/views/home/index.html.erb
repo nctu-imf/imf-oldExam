@@ -13,9 +13,8 @@
   </div>
 </div>
 
-<div class="well landing">
   <h2> 公告 </h2>
-  <div class="desc">
-    <%= render :partial => "bullets/item", :collection => @bullets, :as => :bullet %>
-  </div>
+
+<div class="panel panel-default">
+  <%= render :partial => "bullets/item", :collection => @bullets, :as => :bullet %>
 </div>

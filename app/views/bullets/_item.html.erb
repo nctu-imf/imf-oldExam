@@ -1,15 +1,17 @@
 
-<h3><%= bullet.title %></h3>
+<div class="panel-heading">
+  <h3 class="panel-title"><%= bullet.title %></h3>
+</div>
 
-<%= markdown bullet.content %>
+<div class="panel-body">
+  <%= markdown bullet.content %>
 
 <br><br>
-公布於 <%= bullet.updated_at.to_date %>
+<%= bullet.owner.name %> 公布於 <%= bullet.updated_at.to_date %>
 
 <% if can? :manage, Bullet %>
   <%= link_to("修改", edit_bullet_path(bullet), class: "btn btn-sm btn-default pull-right")%>
   <%= link_to("刪除", bullet_path(bullet), class: "btn btn-sm btn-default pull-right", method: :delete, data: { confirm: "Are you sure?" } )%>
 <% end %>
 
-<hr>
-
+</div>
