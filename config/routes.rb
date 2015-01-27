@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
- 
+
   devise_for :users
   root 'home#index'
 
@@ -9,6 +9,11 @@ Rails.application.routes.draw do
       get :inform
       get :download_file
       get :search
+    end
+
+    member do
+      get "like", to: "courses#upvote"
+      get "dislike", to: "courses#downvote"
     end
   end
 

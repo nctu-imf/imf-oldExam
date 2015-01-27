@@ -3,6 +3,8 @@ class Course < ActiveRecord::Base
 
   mount_uploader :data, CourseDataUploader
 
+  acts_as_votable
+
   validates :year, :name, :grade, :category, :grade_id, :semester_id, :presence => true
   # validates :teacher, :presence => true
   validates :data, :presence => true

@@ -35,6 +35,17 @@
     <td><%= render_course_owner(course) %></td>
     
     <td><%= render_course_year(course) %></td>
+
+    <td><%= pluralize(course.get_likes.size, "Like") %></td>
+
+    <td>
+        <%= link_to like_course_path(course), method: :get do %>
+          <span class="glyphicon glyphicon-thumbs-up"></span>
+        <% end %>
+        <%= link_to dislike_course_path(course), method: :get do %>
+          <span class="glyphicon glyphicon-thumbs-down"></span>
+        <% end %>
+    </td>
     
     <td>
       <% if can? :manage, Course %>
