@@ -1,33 +1,35 @@
 <tr>
 
   <% if mobile_device? %>
-    
+
     <td width="25%">
-      <%= course.year %>    
+      <%= course.year %> 
       <%= render_course_semester(course) %>
       <br>
       <%= course.category %>
     </td>
-  
+
     <td width="25%"><%= course.name %></td>
-    
+ 
     <td width="25%"><%= course.teacher %></td>
-    
+ 
     <td width="25%"><%= render_course_download course %></td>
 
   <% else %>
     <td>
       <%= render_course_fresh_state(course) %>
+    </td>
+    <td>
       <%= course.year %>
       <%= render_course_semester(course) %>
     </td>
-  
+ 
     <td><%= course.name %></td>
-    
+
     <td><%= course.teacher %></td>
-    
+
     <td><%= course.category %></td>
-    
+
     <td><%= render_course_download course %></td>
 
     <td><%= render_course_note(course) %></td>
