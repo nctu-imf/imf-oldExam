@@ -10,25 +10,26 @@
       <%= f.input :year, :collection => 96..(Date.today.year - 1911), :label => "年度", :prompt => "選擇開課學年", :hint => "輸入開課年份以供參考" %>
 
       <%= f.input :semester_id, :collection => Semester.all, :label => "學期", :prompt => "開課學期" %>
-      
+
       <%= f.association :grade, :label => "年級", :prompt => "開課年級", :hint => "若無法判斷，請選擇 “其他”" %>
-      
-      
+
+
       <%= f.input :teacher, :label => "教授" %>
 
       <%= f.input :note, :label => "備註" , :hint => "Example: 範圍、心得...", :input_html => { :rows => 3 } %>
-      
+
 
       <h4 class="instruction"> &nbsp; &nbsp; &nbsp;第二步，上傳檔案 (資料夾請先壓縮再上傳喔^^) </h4>
 
       <%= f.input :data, :label => "選擇檔案" %>
-    
+
     <hr>
-    
+
     <div class="form-group text optional course_description">
       <label class="text optional col-sm-1 control-label" for="course_description"></label>
       <div class="col-sm-11">
-          <%= f.submit "新增課程檔案" , :class => "btn btn-lg btn-danger" %>
+        <%= link_to "取消" , :back, :class => "btn btn-lg btn-warning" %>
+        <%= f.submit "新增課程檔案" , :class => "btn btn-lg btn-danger" %>
       </div>
     </div>
 <% end %>
