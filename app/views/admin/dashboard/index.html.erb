@@ -1,3 +1,13 @@
 <h1 class="text-center">網站管理</h1>
 
-<%= link_to("課程管理", admin_courses_path, :class => "btn btn-default btn-lg") %>
+<div class="btn-group btn-group-justified" role="group">
+   <div class="btn-group" role="group">
+     <%= link_to("課程", admin_courses_path, :class => "btn btn-default btn-lg") %>
+   </div>
+   <div class="btn-group" role="group">
+     <%= link_to("學期", '#', :class => "btn btn-default btn-lg") %>
+   </div>
+   <div class="btn-group" role="group">
+     <%= link_to("種類", '#', :class => "btn btn-default btn-lg") %>
+   </div>
+</div>

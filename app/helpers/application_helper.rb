@@ -15,7 +15,7 @@ module ApplicationHelper
     end
 
     alerts.join("\n").html_safe
-  end 
+  end
 
   # simplify upload file name
   def simple_name(name)
