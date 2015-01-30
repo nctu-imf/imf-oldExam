@@ -12,7 +12,7 @@
       <th> 上傳的人 </th>
       <th> 類型 </th>
       <th> 檔案名稱(下載) </th>
-      <th> 備註 </th>      
+      <th> 備註 </th>
       <th> 上傳時間 </th>
     </tr>
   </thead>
@@ -26,21 +26,21 @@
           <%= course.year %>
           <%= render_course_semester(course) %>
         </td>
-          
+
         <td><%= course.name %></td>
-          
+
         <td><%= course.teacher %></td>
-          
+
         <td><%= render_course_owner(course) %></td>
-          
+
         <td><%= course.category %></td>
-          
+
         <td><%= render_course_download course %></td>
 
         <td><%= render_course_note(course) %></td>
-          
+
         <td><%= render_course_year(course) %></td>
-          
+
         <td>
           <% if can? :manage, Course %>
             <%= render_course_update(course) %>

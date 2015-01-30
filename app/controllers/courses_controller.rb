@@ -9,7 +9,7 @@ class CoursesController < ApplicationController
   end
 
   def dashboard
-    @courses = Course.order("created_at DESC").paginate(:per_page => 12, :page => params[:page])
+    @courses = Course.order("created_at DESC").paginate(:per_page => 15, :page => params[:page])
 
     authorize! :manage, @course
   end
