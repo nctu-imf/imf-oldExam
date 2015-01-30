@@ -27,5 +27,10 @@ Rails.application.routes.draw do
 
   resources :users
 
+  namespace :admin do
+    resources :courses
+    resources :semesters
+  end
+
   get "/pages/:action" , :controller => "pages"
 end

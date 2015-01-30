@@ -32,7 +32,7 @@
             <ul class="dropdown-menu">
               <% if can? :manage, Bullet %>
                 <li>
-                  <%= link_to("課程管理", dashboard_courses_path) %>
+                  <%= link_to("課程管理", admin_courses_path) %>
                 </li>
                 <li>
                   <%= link_to("新增公告", new_bullet_path) %>
