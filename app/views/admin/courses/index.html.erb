@@ -1,13 +1,12 @@
 <h2 class="text-center">課程管理</h3>
 
-<%= link_to '←上一頁', :back, :class => "btn btn-default" %>
+<%= link_to '←回到網站管理', admin_dashboard_index_path, :class => "btn btn-default" %>
 <%= link_to '新增課程', new_course_path, :class => "btn btn-warning pull-right" %>
 <br /><br />
 
 <table class="table table-hover">
   <thead>
     <tr>
-      <th> 新增時間</th>
       <th> 年度 </th>
       <th> 課名 </th>
       <th> 教授 </th>
@@ -21,8 +20,6 @@
 
   <% @courses.each do |course| %>
       <tr>
-
-        <td><%= course.created_at.to_date %></td>
 
         <td>
           <%= course.year %>
