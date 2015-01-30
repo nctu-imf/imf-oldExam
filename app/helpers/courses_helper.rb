@@ -19,7 +19,7 @@ module CoursesHelper
   end
 
   def render_course_download course
-    link_to simple_name(course.data), :controller => :courses, :action => 'download_file', :id => course.id
+    link_to "下載", :controller => :courses, :action => 'download_file', :id => course.id, :class => "btn btn-info btn-xs"
   end
 
   def render_course_note course

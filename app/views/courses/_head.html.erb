@@ -1,24 +1,40 @@
-<thead> 
+<thead>
   <tr>
     <% if mobile_device? %>
 
       <th width="25%"> 年度 </th>
-      <th width="25%"> 課名 </th>
+      <th width="25%"> 課程 </th>
       <th width="25%"> 教授 </th>
       <th width="25%"> 下載 </th>
-    
+
     <% else %>
 
       <th></th>
       <th> 年度 </th>
-      <th> 課名 </th>
+      <th>
+        <span class="glyphicon glyphicon-inbox"></span>
+        課程
+      </th>
       <th> 教授 </th>
-      <th> 類型 </th>
-      <th> 下載 </th>
-      <th> 備註 </th>      
-      <th> 上傳的人 </th>
-      <th> 上傳時間 </th>
-    
+      <th>
+        <span class="glyphicon glyphicon-tags"></span>
+        類型
+      </th>
+      <th>
+        <span class="glyphicon glyphicon-comment"></span>
+        備註
+      </th>
+      <th>
+        <span class="glyphicon glyphicon-user"></span>
+        上傳的人
+      </th>
+      <th>
+        <span class="glyphicon glyphicon-calendar"></span>
+        上傳時間
+      </th>
+      <th><span class="glyphicon glyphicon-download-alt"></span></th>
+      <th><span class="glyphicon glyphicon-heart"></span></th>
+
     <% end %>
   </tr>
 </thead>
