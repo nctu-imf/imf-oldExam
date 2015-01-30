@@ -8,12 +8,6 @@ class CoursesController < ApplicationController
     authorize! :create, @course
   end
 
-  def dashboard
-    @courses = Course.order("created_at DESC").paginate(:per_page => 15, :page => params[:page])
-
-    authorize! :manage, @course
-  end
-
   # GET /courses/1/edit
   def edit
     find_course_and_check_is_admin?

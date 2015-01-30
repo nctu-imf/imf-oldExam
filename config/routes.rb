@@ -5,7 +5,6 @@ Rails.application.routes.draw do
 
   resources :courses do
     collection do
-      get :dashboard
       get :inform
       get :download_file
       get :search
