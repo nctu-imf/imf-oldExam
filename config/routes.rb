@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :courses
     resources :semesters
+    resources :dashboard, only: :index
   end
 
   get "/pages/:action" , :controller => "pages"
