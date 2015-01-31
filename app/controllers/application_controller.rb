@@ -14,7 +14,12 @@ class ApplicationController < ActionController::Base
   # Override devise's method
   # Redirect to courses page after user signed in
   def after_sign_in_path_for(resource)
-    grade_path(1)  
+    grade_path(1)
+  end
+
+  def info_for_paper_trail
+    # Save additional info
+    { ip: request.remote_ip }
   end
 
   rescue_from CanCan::AccessDenied do |exception|

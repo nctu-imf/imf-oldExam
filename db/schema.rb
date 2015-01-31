@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150131125039) do
+ActiveRecord::Schema.define(version: 20150131192658) do
 
   create_table "bullets", force: true do |t|
     t.string   "title"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20150131125039) do
     t.text     "object"
     t.datetime "created_at"
     t.text     "object_changes"
+    t.string   "ip"
   end
 
   add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
