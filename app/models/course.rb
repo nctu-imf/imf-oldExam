@@ -3,6 +3,8 @@ class Course < ActiveRecord::Base
 
   mount_uploader :data, CourseDataUploader
 
+  has_paper_trail
+
   acts_as_votable
 
   validates :year, :name, :grade, :category, :grade_id, :semester_id, :presence => true

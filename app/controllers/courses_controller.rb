@@ -8,6 +8,10 @@ class CoursesController < ApplicationController
     authorize! :create, @course
   end
 
+  def show
+    @course = Course.find(params[:id])
+  end
+
   # GET /courses/1/edit
   def edit
     find_course_and_check_is_admin?

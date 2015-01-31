@@ -49,4 +49,8 @@ module CoursesHelper
       content_tag(:span, "MOD", :class => "label label-warning")
     end
   end
+
+  def render_course_admin_name(course)
+    link_to course.name, admin_course_path(course)
+  end
 end
