@@ -1,22 +1,25 @@
-<h1><%= @course.name %> 的版本紀錄</h1>
+<h1 class="text-center"><%= @course.name %> 的版本紀錄</h1>
 
-<%= @course.versions.each do |version| %>
+<% @course.versions.reverse_each do |version| %>
+
   <li>
-    <%= version.created_at %><br />
-
-    Event ID: <%= version.id %><br/>
+    <h4>
+      <%= render_course_version_editor(version) %> 更改於
+      <%= version.created_at %>
+    </h4>
 
     <b>Target:</b> <%= version.item_type %>
 
     <small>(id: <%= version.item_id %>)</small>; <b>action</b> <%= version.event %>;<br/>
 
     <div>
-      More info:
+      詳細內容:
       <pre><%= version.object %></pre>
     </div>
     <div>
-      Changeset:
+      本次更改(左->右, 新->舊):
       <pre><%= version.changeset %></pre>
     </div>
   </li>
+  <hr />
 <% end %>
