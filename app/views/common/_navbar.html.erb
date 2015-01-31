@@ -32,11 +32,12 @@
             <ul class="dropdown-menu">
               <% if can? :manage, Bullet %>
                 <li>
-                  <%= link_to("管理", '/admin/dashboard') %>
+                  <%= link_to("課程管理", admin_courses_path) %>
                 </li>
                 <li>
                   <%= link_to("新增公告", new_bullet_path) %>
                 </li>
+                <li class="divider"></li>
               <% elsif current_user.public == false %>
               <li>
                 <%= link_to("貢獻", user_path(current_user)) %>
@@ -44,6 +45,7 @@
               <li>
                 <%= link_to("帳號設定", edit_user_registration_path )%>
               </li>
+              <li class="divider"></li>
               <% end %>
 
               <li>
