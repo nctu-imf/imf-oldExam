@@ -69,3 +69,4 @@ gem 'will_paginate-bootstrap'
 gem 'acts_as_votable', '~> 0.10.0'
 
 gem 'paper_trail', '~> 3.0.6'
+gem 'diffy'

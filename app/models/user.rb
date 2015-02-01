@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
 
   has_many :courses
   has_many :bullets
+
+  def self.find_version_author(version)
+    find(version.terminator)
+  end
 end

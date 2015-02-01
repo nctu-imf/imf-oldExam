@@ -1,0 +1,42 @@
+<div class='row mt'>
+  <div class='col-sm-12'>
+    <h2><%= "Diff between Version #{@version.id} and Current Version" %></h2>
+    <style><%= Diffy::CSS %></style>
+    <div class='well diff'>
+      <p>
+        <strong>名稱:</strong>
+        <%= diff(@version.reify.name, @course.name) %>
+      </p>
+      <p>
+        <strong>年度:</strong>
+        <%= diff(@version.reify.year, @course.year) %>
+      </p>
+      <p>
+        <strong>學期:</strong>
+        <%= diff(@version.reify.semester_id, @course.semester_id) %>
+      </p>
+      <p>
+        <strong>教授:</strong>
+        <%= diff(@version.reify.teacher, @course.teacher) %>
+      </p>
+      <p>
+        <strong>種類:</strong>
+        <%= diff(@version.reify.category, @course.category) %>
+      </p>
+      <p>
+        <strong>備註:</strong>
+        <%= diff(@version.reify.note, @course.note) %>
+      </p>
+      <p>
+        <strong>檔案:</strong>
+        <%= diff(@version.reify.data, @course.data) %>
+      </p>
+    </div>
+    <p>
+      <%= "Version authored by #{find_version_author_name(@version)} on #{@version.created_at} by '#{@version.event.humanize}'." %>
+    </p>
+  </div>
+</div>
+
+  <%= link_to 'Back', edit_course_path(@course), class: 'btn btn-danger' %>
+  <%= link_to 'Rollback', rollback_course_version_path(@course, @version), class: 'btn btn-primary', method: 'PATCH' %>

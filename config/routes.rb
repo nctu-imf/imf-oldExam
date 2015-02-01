@@ -14,6 +14,13 @@ Rails.application.routes.draw do
       get "like", to: "courses#upvote"
       get "dislike", to: "courses#downvote"
     end
+
+    resources :versions, only: [:destroy] do
+      member do
+        get :diff, to: 'versions#diff'
+        patch :rollback, to: 'versions#rollback'
+      end
+    end
   end
 
   resources :grade do
