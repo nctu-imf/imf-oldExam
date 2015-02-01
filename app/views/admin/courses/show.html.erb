@@ -26,7 +26,7 @@
       </tr>
   </thead>
   <tbody>
-    <% @course.versions.reverse_each do |version| %>
+    <% @course.versions.drop(1).reverse_each do |version| %>
     <tr>
       <td><%= version.index %></td>
       <td><%= version.created_at %></td>
