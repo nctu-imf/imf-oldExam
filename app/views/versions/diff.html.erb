@@ -38,5 +38,5 @@
   </div>
 </div>
 
-  <%= link_to 'Back', edit_course_path(@course), class: 'btn btn-danger' %>
+  <%= link_to 'Back', :back, class: 'btn btn-danger' %>
   <%= link_to 'Rollback', rollback_course_version_path(@course, @version), class: 'btn btn-primary', method: 'PATCH' %>

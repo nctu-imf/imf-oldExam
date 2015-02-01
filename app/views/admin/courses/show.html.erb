@@ -10,7 +10,6 @@
           <th>Event</th>
           <th></th>
           <th></th>
-          <th></th>
       </tr>
   </thead>
   <tbody>
@@ -21,7 +20,7 @@
       <td><%= find_version_author_name(version) %></td>
       <td><%= version.ip %></td>
       <td><%= version.event.humanize %></td>
-      <td><%= link_to 'Diff', diff_course_version_path(@course, version) %></td>
+      <td><%= link_to 'Diff', diff_course_version_path(@course, version), class: "btn btn-info btn-xs" %></td>
       <td><%= link_to 'Rollback', rollback_course_version_path(@course, version), method: :patch, class: "btn btn-primary btn-xs" %></td>
     </tr>
     <% end %>
