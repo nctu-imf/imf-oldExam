@@ -18,10 +18,10 @@ module ApplicationHelper
   end
 
   # simplify upload file name
-  def simple_name(name)
+  def simple_name(name, string_length=12)
     result = name.to_s[21..-1]
     location = result.index('/')
-    truncate(result[location + 1..-1], length: 12)
+    truncate(result[location + 1..-1], length: string_length)
   end
 
   def render_chinese_version

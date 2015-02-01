@@ -1,5 +1,18 @@
-<h1 class="text-center"><%= @course.name %> 的版本紀錄</h1>
+<h2><%= @course.name %> 's Current Version</h2>
 
+<pre>
+  名稱: <%= @course.name %>
+  年度: <%= @course.year %>
+  學期: <%= Semester.find(@course.semester_id).name %>
+  教授: <%= @course.teacher %>
+  種類: <%= @course.category %>
+  備註: <%= @course.note %>
+  檔案名稱: <%= simple_name(@course.data, 20) %>
+</pre>
+
+<hr />
+
+<h3>Previous Versions</h3>
 <table class="table">
   <thead>
       <tr>

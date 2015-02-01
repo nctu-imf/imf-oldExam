@@ -4,7 +4,7 @@ class VersionsController < ApplicationController
   def rollback
     course = @version.reify
     @version.reify.save
-    redirect_to admin_course_path(course)
+    redirect_to admin_course_path(course), notice: 'Rollback 成功!'
   end
 
   def diff
