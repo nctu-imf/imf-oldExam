@@ -13,7 +13,7 @@
       </p>
       <p>
         <strong>學期:</strong>
-        <%= diff(@version.reify.semester_id, @course.semester_id) %>
+        <%= diff(Semester.find(@version.reify.semester_id).name, Semester.find(@course.semester_id).name) %>
       </p>
       <p>
         <strong>教授:</strong>
