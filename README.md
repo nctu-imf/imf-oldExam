@@ -9,6 +9,15 @@ Development
 
 `rake dev:rebuild` Automatically build and then db:seed
 
+Features
+--------
+
+- File Upload
+- Website background Management System
+- Model versioning and difference between versions
+- Front-end development using bootstrap  
+- Support mobile devices
+
 
 ## Contributing
 
