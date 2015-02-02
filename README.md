@@ -13,8 +13,11 @@ Features
 --------
 
 - File Upload
-- Website background Management System
+- Website background Management System 
+- Use `cancancan` to manage users authorizations
 - Model versioning and difference between versions
+- Searching using Ransack
+- Markdown editor
 - Front-end development using bootstrap  
 - Support mobile devices
 
