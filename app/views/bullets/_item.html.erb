@@ -12,8 +12,16 @@
   <%= markdown bullet.content %>
 
 <% if can? :manage, Bullet %>
-  <%= link_to("修改", edit_bullet_path(bullet), class: "btn btn-sm btn-default pull-right")%>
-  <%= link_to("刪除", bullet_path(bullet), class: "btn btn-sm btn-default pull-right", method: :delete, data: { confirm: "Are you sure?" } )%>
+
+  <%= link_to(bullet_path(bullet), class: "btn btn-sm btn-danger pull-right",
+                                        method: :delete, data: { confirm: "確定嗎?" }) do %>
+    <span class="glyphicon glyphicon-trash"></span> 刪除
+  <% end %>
+
+  <%= link_to(edit_bullet_path(bullet), class: "btn btn-sm btn-success pull-right") do %>
+    <span class="glyphicon glyphicon-edit"></span> 修改
+  <% end %>
+
 <% end %>
 
 </div>
