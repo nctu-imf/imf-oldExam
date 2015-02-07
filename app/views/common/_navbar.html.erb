@@ -1,9 +1,9 @@
 <nav class="navbar navbar-default" role="navigation">
   <div class="container-fluid">
-    
+
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-      
+ 
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
@@ -12,7 +12,7 @@
       </button>
 
       <a class="navbar-brand" href="/">資財考古題</a>
-    
+
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -40,24 +40,34 @@
             <ul class="dropdown-menu" role="menu">
               <% if can? :manage, Bullet %>
                 <li>
-                  <%= link_to("課程管理", admin_courses_path) %>
+                  <%= link_to(admin_courses_path) do %>
+                    <span class="glyphicon glyphicon-tasks"></span> 課程管理
+                  <% end %>
                 </li>
                 <li>
-                  <%= link_to("新增公告", new_bullet_path) %>
+                  <%= link_to(new_bullet_path) do %>
+                    <span class="glyphicon glyphicon-bullhorn"></span> 新增公告
+                  <% end %>
                 </li>
                 <li class="divider"></li>
               <% elsif current_user.public == false %>
               <li>
-                <%= link_to("貢獻", user_path(current_user)) %>
+                <%= link_to(user_path(current_user)) do %>
+                  <span class="glyphicon glyphicon-heart-empty"></span> 貢獻
+                <% end %>
               <li>
               <li>
-                <%= link_to("帳號設定", edit_user_registration_path )%>
+                <%= link_to(edit_user_registration_path) do %>
+                  <span class="glyphicon glyphicon-cog"></span> 帳號設定
+                <% end %>
               </li>
               <li class="divider"></li>
               <% end %>
 
               <li>
-                <%= link_to("登出", destroy_user_session_path, :method => :delete ) %>
+                <%= link_to(destroy_user_session_path, :method => :delete ) do %>
+                  <span class="glyphicon glyphicon-log-out"></span> 登出
+                <% end %>
               </li>
             </ul>
           </li>
