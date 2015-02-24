@@ -13,84 +13,84 @@
 
 ActiveRecord::Schema.define(version: 20150131192658) do
 
-  create_table "bullets", force: true do |t|
-    t.string   "title"
-    t.text     "content"
+  create_table "bullets", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.text     "content",    limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
+    t.integer  "user_id",    limit: 4
   end
 
   add_index "bullets", ["user_id"], name: "index_bullets_on_user_id", using: :btree
 
-  create_table "courses", force: true do |t|
-    t.string   "name"
-    t.string   "category"
-    t.integer  "year"
-    t.integer  "grade_id"
-    t.string   "teacher"
-    t.text     "note"
+  create_table "courses", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.string   "category",    limit: 255
+    t.integer  "year",        limit: 4
+    t.integer  "grade_id",    limit: 4
+    t.string   "teacher",     limit: 255
+    t.text     "note",        limit: 65535
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "data"
-    t.integer  "user_id"
-    t.integer  "semester_id"
+    t.string   "data",        limit: 255
+    t.integer  "user_id",     limit: 4
+    t.integer  "semester_id", limit: 4
   end
 
-  create_table "grades", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "semesters", force: true do |t|
-    t.string   "name"
+  create_table "grades", force: :cascade do |t|
+    t.string   "name",       limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "users", force: true do |t|
-    t.string   "email",                  default: "",    null: false
-    t.string   "encrypted_password",     default: "",    null: false
-    t.string   "reset_password_token"
+  create_table "semesters", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  limit: 255, default: "",    null: false
+    t.string   "encrypted_password",     limit: 255, default: "",    null: false
+    t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,     null: false
+    t.integer  "sign_in_count",          limit: 4,   default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
-    t.boolean  "admin",                  default: false
-    t.boolean  "public",                 default: false
+    t.string   "name",                   limit: 255
+    t.boolean  "admin",                  limit: 1,   default: false
+    t.boolean  "public",                 limit: 1,   default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  create_table "versions", force: true do |t|
-    t.string   "item_type",      null: false
-    t.integer  "item_id",        null: false
-    t.string   "event",          null: false
-    t.string   "whodunnit"
-    t.text     "object"
+  create_table "versions", force: :cascade do |t|
+    t.string   "item_type",      limit: 255,   null: false
+    t.integer  "item_id",        limit: 4,     null: false
+    t.string   "event",          limit: 255,   null: false
+    t.string   "whodunnit",      limit: 255
+    t.text     "object",         limit: 65535
     t.datetime "created_at"
-    t.text     "object_changes"
-    t.string   "ip"
+    t.text     "object_changes", limit: 65535
+    t.string   "ip",             limit: 255
   end
 
   add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
 
-  create_table "votes", force: true do |t|
-    t.integer  "votable_id"
-    t.string   "votable_type"
-    t.integer  "voter_id"
-    t.string   "voter_type"
-    t.boolean  "vote_flag"
-    t.string   "vote_scope"
-    t.integer  "vote_weight"
+  create_table "votes", force: :cascade do |t|
+    t.integer  "votable_id",   limit: 4
+    t.string   "votable_type", limit: 255
+    t.integer  "voter_id",     limit: 4
+    t.string   "voter_type",   limit: 255
+    t.boolean  "vote_flag",    limit: 1
+    t.string   "vote_scope",   limit: 255
+    t.integer  "vote_weight",  limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
