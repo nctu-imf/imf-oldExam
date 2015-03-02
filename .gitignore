@@ -21,3 +21,6 @@
 /public/uploads/tmp/*
 
 /db/seeds.rb
+
+# For production mode
+/config/database.yml
