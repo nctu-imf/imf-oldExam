@@ -17,7 +17,7 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  database: demo_production
+  database: imf-oldexam
   host: localhost
   username: root
   password:

@@ -24,3 +24,4 @@
 
 # For production mode
 /config/database.yml
+public/assets/*
