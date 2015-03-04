@@ -20,4 +20,5 @@ production:
   database: imf-oldexam
   host: localhost
   username: root
-  password:
+  password: "1234" 
+  socket: /var/run/mysqld/mysqld.sock 

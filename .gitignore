@@ -24,4 +24,11 @@
 
 # For production mode
 /config/database.yml
+/config/config.yml
 public/assets/*
+
+revisions.log
+/repo
+/shared
+/current
+/releases
